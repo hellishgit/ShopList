@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("com.google.devtools.ksp")
     id ("kotlin-kapt")
 }
 
@@ -39,6 +40,7 @@ android {
 
 dependencies {
 
+    implementation( libs.kotlin.stdlib)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -50,7 +52,7 @@ dependencies {
     implementation (libs.androidx.lifecycle.runtime.ktx)
     implementation (libs.androidx.room.runtime)
     implementation (libs.androidx.room.ktx)
-    kapt (libs.androidx.room.compiler)
+    ksp (libs.androidx.room.compiler)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

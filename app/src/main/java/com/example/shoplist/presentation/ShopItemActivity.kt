@@ -9,7 +9,7 @@ import com.example.shoplist.R
 import com.example.shoplist.domain.ShopItem
 
 class ShopItemActivity : AppCompatActivity(), ShopItemFragment.OnEditingFinishedListener {
-    
+
     private var screenMode = MODE_UNKNOWN
     private var shopItemId = ShopItem.UNDEFINED_ID
 
@@ -35,8 +35,7 @@ class ShopItemActivity : AppCompatActivity(), ShopItemFragment.OnEditingFinished
             else -> throw RuntimeException("Unknown screen mode $screenMode")
 
         }
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.shop_item_container, fragment)
+        supportFragmentManager.beginTransaction().replace(R.id.shop_item_container, fragment)
             .commit()
     }
 
