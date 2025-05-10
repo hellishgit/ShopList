@@ -2,7 +2,6 @@
 <layout>
 
     <data>
-
         <variable
             name="viewModel"
             type="com.example.shoplist.presentation.ShopItemViewModel" />
@@ -17,7 +16,6 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_name"
-
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
