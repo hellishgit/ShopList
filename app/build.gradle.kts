@@ -2,7 +2,6 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     id("com.google.devtools.ksp")
-    id ("kotlin-kapt")
 }
 
 android {
@@ -33,26 +32,39 @@ android {
         dataBinding = true
     }
 
-    kotlinOptions {
-        jvmTarget = "1.8"
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
+
+    kotlinOptions {
+        jvmTarget = "11"
+    }
+
 }
 
 dependencies {
 
-    implementation( libs.kotlin.stdlib)
+    implementation(libs.kotlin.stdlib)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    implementation (libs.kotlinx.coroutines.core)
-    implementation (libs.kotlinx.coroutines.android)
-    implementation (libs.androidx.lifecycle.viewmodel.ktx)
-    implementation (libs.androidx.lifecycle.runtime.ktx)
-    implementation (libs.androidx.room.runtime)
-    implementation (libs.androidx.room.ktx)
-    ksp (libs.androidx.room.compiler)
+
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
+
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    ksp(libs.androidx.room.compiler)
+
+    implementation(libs.dagger.android)
+    ksp(libs.dagger.compiler)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

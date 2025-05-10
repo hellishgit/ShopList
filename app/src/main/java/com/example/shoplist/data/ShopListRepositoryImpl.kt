@@ -1,17 +1,15 @@
 package com.example.shoplist.data
 
-import android.app.Application
-import android.service.autofill.Transformation
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import com.example.shoplist.domain.ShopItem
 import com.example.shoplist.domain.ShopListRepository
-import com.google.android.material.transformation.FabTransformationScrimBehavior
+import javax.inject.Inject
 
-class ShopListRepositoryImpl(application: Application) : ShopListRepository {
-
-    private val shopListDao = AppDatabase.getInstance(application).shopListDao()
-    private val mapper = ShopListMapper()
+class ShopListRepositoryImpl @Inject constructor(
+    private val shopListDao: ShopListDao,
+    private val mapper: ShopListMapper
+) : ShopListRepository {
 
     override suspend fun addShopItem(shopItem: ShopItem) {
         shopListDao.addShopItem(mapper.mapEntityToDbModel(shopItem))
